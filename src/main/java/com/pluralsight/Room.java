@@ -26,10 +26,11 @@ public class Room {
     }
 
     public double getPrice() {
-
-
-
-        return price;
+        if (roomType.equalsIgnoreCase("double")){
+            return 124;
+        } else {
+            return 139;
+        }
     }
 
     public boolean isOccupied() {
