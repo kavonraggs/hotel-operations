@@ -2,7 +2,7 @@ package com.pluralsight;
 
 public class Room {
     private int bedNumber;
-    private double price;
+    private final double price;
     private boolean isOccupied;
     private boolean isDirty;
     private boolean isAvailable;

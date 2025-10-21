@@ -11,6 +11,7 @@ public class Employee {
     private boolean isPunchedIn = false;
     LocalTime punchInTime;
     LocalTime punchOutTime;
+    private double totalPay;
 
 
     public Employee(int employeeId, String name, String department, double payRate, double hoursWorked){
@@ -39,6 +40,11 @@ public class Employee {
             overtimeHours = hoursWorked - 40;
         }
         return overtimeHours;
+    }
+
+    private double getTotalPay(){
+        double overtimePayRate = 1.5;
+        return totalPay = (payRate * getRegularHoursWorked()) + (overtimePayRate * getOvertimeHours());
     }
 
     public void punchIn(double time){

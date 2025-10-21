@@ -46,7 +46,7 @@ public class Reservation {
     }
 
     public double getPrice() {
-        if (roomType.equalsIgnoreCase("king")){
+        if (roomType.equalsIgnoreCase("double")){
             return 124;
         } else {
             return 139;
