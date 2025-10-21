@@ -52,7 +52,10 @@ public class Employee {
         return totalPay;
     }
 
-    public void punchIn(double time) {
+    public void punchIn(String timeInput) {
+        punchInTime = LocalTime.parse(timeInput);
+        isPunchedIn = true;
+        System.out.println("Clocked in at " + punchInTime);
 
     }
 
@@ -67,8 +70,9 @@ public class Employee {
     }
 
     public void punchOut(String timeInput) {
-        punchInTime = LocalTime.parse(timeInput);
-        isPunchedIn = true;
+        punchOutTime = LocalTime.parse(timeInput);
+        isPunchedIn = false;
+        System.out.println("Clocked out at " + punchOutTime);
     }
 
     public void punchOut() {
@@ -79,11 +83,5 @@ public class Employee {
         } else {
             System.out.println("You are not clocked in");
         }
-    }
-
-    public void punchCard(String timeInput) {
-        punchOutTime = LocalTime.parse(timeInput);
-        isPunchedIn = false;
-
     }
 }

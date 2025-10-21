@@ -1,20 +1,26 @@
 package com.pluralsight;
 
 public class Room {
-    private int bedNumber;
-    private final double price;
+    private final int bedNumber;
+    private double price;
     private boolean isOccupied;
     private boolean isDirty;
     private boolean isAvailable;
-    private String roomType;
+    private final String roomType;
 
 
-    public Room(int bedNumber, double price){
+    public Room(int bedNumber, String roomType){
         this.bedNumber = bedNumber;
-        this.price = price;
         this.isOccupied = false;
         this.isDirty = false;
         this.isAvailable = true;
+        this.roomType = roomType;
+
+        if (roomType.equalsIgnoreCase("double")) {
+            this.price = 124;
+        } else if (roomType.equalsIgnoreCase("king")){
+            this.price = 139;
+        }
     }
 
     public String getRoomType() {
@@ -26,11 +32,8 @@ public class Room {
     }
 
     public double getPrice() {
-        if (roomType.equalsIgnoreCase("double")){
-            return 124;
-        } else {
-            return 139;
-        }
+        return price;
+
     }
 
     public boolean isOccupied() {
