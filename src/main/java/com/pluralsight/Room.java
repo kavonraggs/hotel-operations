@@ -1,20 +1,24 @@
 package com.pluralsight;
 
 public class Room {
-    int bedNumber;
-    double price;
-    boolean isOccupied;
-    boolean isDirty;
-    boolean isAvailable;
-    Reservation reservation = new Reservation();
+    private int bedNumber;
+    private double price;
+    private boolean isOccupied;
+    private boolean isDirty;
+    private boolean isAvailable;
+    private String roomType;
 
 
-    public Room(){
-        this.bedNumber = 0;
-        this.price = 0;
+    public Room(int bedNumber, double price){
+        this.bedNumber = bedNumber;
+        this.price = price;
         this.isOccupied = false;
         this.isDirty = false;
         this.isAvailable = true;
+    }
+
+    public String getRoomType() {
+        return roomType;
     }
 
     public int getBedNumber() {
@@ -38,6 +42,25 @@ public class Room {
 
     public boolean isAvailable() {
         return isAvailable;
+    }
+
+
+    public void checkIn(){
+        isAvailable = false;
+        isOccupied = true;
+        isDirty = false;
+
+    }
+
+    public void checkOut(){
+        isOccupied = false;
+        isAvailable = false;
+        isDirty = true;
+    }
+
+    public void cleanRoom(){
+        isDirty = false;
+        isAvailable = true;
     }
 
 }
